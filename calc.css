@@ -1,0 +1,122 @@
+body{
+    background-color: ;
+    font-family:'Open Sans', sans-serif;
+}
+#container{
+    width: 1000px;
+    height: 550px;
+    margin:20px auto ;
+}
+#calculator{
+    width: 320px;
+    height: 520px;
+    background-color: rgb(230,230,230);
+    box-shadow: 5px 5px 10px #b6a9a9, -5px -5px 10px #ffffff;
+    margin: 0 auto;
+    top: 20px;
+    position: relative;
+    border-radius: 5px;
+}
+#result{
+    height: 120px;
+
+}
+#history{
+    text-align:right;
+    height: 20px;
+    margin: 0px 20px;
+    padding-top: 20px;
+    font-size:15px;
+    color: #919191;
+}
+#output{
+    text-align: right;
+    height: 60px;
+    margin: 10px 20px;
+    font-size: 30px;
+    background-color: transparent;
+    border: none;
+    box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #ffffff;
+    border-radius: 10px;
+    padding: 5px;
+
+}
+#keyboard{
+    height:400px;
+}
+.operator, .number, .blank{
+    width: 50px;
+    height: 30px;
+    margin: 15px;
+    float:left;
+    border-radius: 10%;
+    border-width:0;
+    background-color: rgb(230,230,230);
+
+    box-shadow: 5px 5px 10px #b6acac, -5px 5px 10px #b6acac;
+
+    
+
+    font-weight:15px;
+    font-weight: bold;
+    font-size: 15px;
+}
+.numbers{
+    width: 50px;
+    height: 30px;
+    margin: 15px;
+    float:left;
+    border-radius: 10%;
+    border-width:0;
+    box-shadow: 5px 5px 10px #b6acac, -5px -5px 10px #faf4f4;
+
+    font-weight:15px;
+    font-weight: bold;
+    font-size: 15px;
+
+}
+
+.number, .operator{
+    cursor: pointer;
+}
+.number:active, .operator:active{
+    font-size: 13px;
+
+}
+.number:focus, .operator:focus, .blank:focus{
+    outline: 0;
+}
+button:nth-child(4){
+    font-size: 20px;
+    color: white;
+    background-color: #5cbdb8;
+}
+button:nth-child(8){
+    font-size: 20px;
+    background-color: #f8b842;
+    color: white;
+
+}button:nth-child(12){
+    font-size: 20px;
+    background-color: #f59b9b;
+    color: white;
+
+}button:nth-child(16){
+    font-size: 20px;
+    background-color: #155ef1;
+    color: white;
+}button:nth-child(20){
+    font-size: 20px;
+    background-color: black;
+    color: white;
+}
+.empty{
+    background-color: transparent;
+    box-shadow: 0px 0px 0px 0px rgba(50,50,50,0.5)!important;
+
+}
+#clear{
+    background-color: red;
+    color: white;
+    
+}
