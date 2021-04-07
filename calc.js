@@ -1,6 +1,6 @@
 
 
-
+// Section 1: declare all Querry
 function inputDisplay(){
     return document.getElementById("input-display").innerText;
 }
@@ -19,55 +19,82 @@ function displayValue(num){
 
     }
     else{
-        document.getElementById("entry-value").innerText=getFormattedNumber(num);
+        document.getElementById("entry-value").innerText=removeNegativeSign(num);
     }
 
 }
+// this is to return an empty value instead of a negative symbol only
 
-function getFormattedNumber(num){
+function removeNegativeSign(num){
     if (num=="-"){
         return "";
     }
+    // converting to string in order to have thousand separators (commas before every three digits)
     var n= Number(num);
     var value = n.toLocaleString("en");
     return value;
 }
 
-function reverseNumberFormat(num){
+//  To convert the output back to a number from string
+function convertToNumber(num){
     return Number(num.replace(/,/g,''));
 
 }
-
+// declare a Querry of the whole array of operators
 var operator = document.getElementsByClassName("operator");
 for(var i=0; i < operator.length; i++){
     operator[i].addEventListener('click', function(){
 
-        if(this.id=="clear"){
+        if(this.id=="delete-all"){
             outputDisplay("");
             displayValue("");
         }
 
         else if(this.id=="backspace"){
-            var output = reverseNumberFormat(entryValue()).toString();
+            var output = convertToNumber(entryValue()).toString();
             if(output){
                 output = output.substr(0, output.length-1);
                 displayValue(output);
             }
         }
+        else if(this.id=="%"){
+            var output = entryValue();
+            var history = inputDisplay();
+            if(output !=""){
+                output = convertToNumber(output);
+                history =history + output;
+        
+                if(history){
+                    history=history/100;
+                    outputDisplay("");
+                    displayValue(history);
+                }
+                
+            } 
+        }
+        else if(this.id=="."){
+            var output = entryValue();
+            var history = inputDisplay();
+            if(output !=""){
+                output = convertToNumber(output);
+                history =history + output ;
+               
+                
+                if(this.id){
+                    history=history + this.id;
+                    outputDisplay(history);
+                    displayValue("")
+                    
+                }
+                
+            }  
+        }
         else{
             var output = entryValue();
             var history= inputDisplay();
-            if(output!=""
-            //  && history!=""
-             ){
-            //     if(isNaN(history[history.length-1])){
-            //         history=history.substr(0,history.length-1)
-            //     }
-
-            // }
-            // if(output!="" || history!=""){
-            //     output=output==""?
-                output = reverseNumberFormat(output);
+            if(output!=""){
+            
+                output = convertToNumber(output);
                 history = history + output;
                 if(this.id=="="){
                     var result = eval(history);
@@ -85,11 +112,15 @@ for(var i=0; i < operator.length; i++){
 
     });
 }
+
+
+// declare the whole array of numbers
+
 var number = document.getElementsByClassName('number');
 
 for(var i=0; i < number.length; i++){
     number[i].addEventListener('click', function(){
-        var output= reverseNumberFormat(entryValue());
+        var output= convertToNumber(entryValue());
         if(output !=NaN){
             output= output + this.id;
             displayValue(output);
@@ -99,4 +130,10 @@ for(var i=0; i < number.length; i++){
 
     });
 }
-console.log(8)
+
+
+
+
+
+
+
